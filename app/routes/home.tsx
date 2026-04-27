@@ -1,13 +1,20 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+// import "../styling/home-styling.css";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import { Form } from "react-router";
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <>
+      <div className="app-header">
+        <h1> HealthViz </h1>
+        <h2> An Online Platform to View Patient Profiles </h2>
+      </div>
+
+      <Form action="/profile" method="get"> 
+        <input type="text" id="searchQuery" placeholder="Search patient..."/>
+        <button type="submit"> Search </button>
+      </Form>
+    </>
+  );
 }
+
