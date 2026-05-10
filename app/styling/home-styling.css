@@ -1,4 +1,19 @@
-.app-header {
+.webpage-title {
+    display: flex;
+    justify-content: center;
+}
+
+.webpage-description {
+    display: flex;
+    justify-content: center;
+}
+
+.search-terms {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.submit-button {
     display: flex;
     justify-content: center;
 }
