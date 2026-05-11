@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
+import PatientHistory from "../services/patientHistory";
 
 
 export default function Profile() {
@@ -26,7 +27,6 @@ export default function Profile() {
     }
   })
 
-  console.log(data);
   const patientResource = data?.entry?.[0]?.resource;
 
   if (isPending) return <h1> Loading... </h1>
@@ -45,6 +45,9 @@ export default function Profile() {
         {patientResource.address?.[0]?.state}&nbsp;
         {patientResource.address?.[0]?.postalCode} 
       </p>
+      <PatientHistory
+        patient_id={patientResource?.id}
+        />
     </div>
   );
 }
