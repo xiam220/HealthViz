@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import PatientHistory from "../services/patientHistory";
 
 
-export default function Profile() {
+export default function PatientProfile() {
   const [params] = useSearchParams();
   const givenName = params.get("givenName");
   const familyName = params.get("familyName");
@@ -33,7 +33,7 @@ export default function Profile() {
   if (error) return <h1> An error has occurred: {error.message} </h1>
   if (isFetching) return <div> {isFetching ? "Updating..." : ""} </div>
 
-
+  console.log(data);
   return (
     <div>
       <p> Name: {patientResource.name?.[0]?.given?.[0]} {patientResource.name?.[0]?.family} </p>

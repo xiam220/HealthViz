@@ -8,12 +8,17 @@
     justify-content: center;
 }
 
-.search-terms {
+.patient-search-terms {
     display: flex;
     justify-content: space-evenly;
 }
 
-.submit-button {
+.patient-submit-button {
     display: flex;
     justify-content: center;
+}
+
+.organization-search-terms {
+    display: flex;
+    justify-content: space-evenly;
 }
