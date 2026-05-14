@@ -47,7 +47,7 @@ export default function PatientProfile() {
       </p>
       <PatientHistory
         patient_id={patientResource?.id}
-        />
+      />
     </div>
   );
 }
