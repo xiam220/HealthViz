@@ -1,0 +1,10 @@
+.org-display {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard {
+    width: min(95vw, 1200px);
+    aspect-ratio: 16/16;
+    position: relative;
+}
