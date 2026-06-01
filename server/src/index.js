@@ -1,20 +1,17 @@
 import express from "express";
 import cors from "cors";
-// import { classificationRouter, datesRouter, testRouter, totalPatients, totalEncounters } from "./routes/organization_routes.js";
-import router from "./routes/encounter_routes.js";
+// import encounter_router from "./routes/encounter_routes.js";
+import { condition_router, allergyIntolerance_router , immunization_router } from "./routes/patientProfile_routes.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/encounters", router);
-
-// app.use("/test", testRouter);
-// app.use("/", datesRouter);
-// app.use("/", classificationRouter);
-// app.use("/", totalPatients);
-// app.use("/", totalEncounters);
+// app.use("/api/encounter", encounter_router);
+app.use("/api/Condition", condition_router);
+app.use("/api/AllergyIntolerance", allergyIntolerance_router);
+app.use("/api/Immunization", immunization_router);
 
 app.listen(3001, () => {
   console.log("running on 3001");
