@@ -1,6 +1,8 @@
 import { useSearchParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
-import PatientHistory from "../services/patientHistory";
+// import PatientHistory from "../services/patientHistory";
+import { LoadConditions } from "~/services/condition_client";
+import { LoadImmunizationRecords } from "~/services/immunization_client";
 
 
 export default function PatientProfile() {
@@ -34,8 +36,10 @@ export default function PatientProfile() {
   if (isFetching) return <div> {isFetching ? "Updating..." : ""} </div>
 
   console.log(data);
+  
   return (
     <div>
+      <h1> Patient Information </h1>
       <p> Name: {patientResource.name?.[0]?.given?.[0]} {patientResource.name?.[0]?.family} </p>
       <p> DOB: {patientResource.birthDate} </p>
       <p> Phone: {patientResource.telecom?.[0]?.value} </p>
@@ -45,9 +49,9 @@ export default function PatientProfile() {
         {patientResource.address?.[0]?.state}&nbsp;
         {patientResource.address?.[0]?.postalCode} 
       </p>
-      <PatientHistory
-        patient_id={patientResource?.id}
-      />
+
+      <LoadConditions patient_id={patientResource?.id}/>
+      <LoadImmunizationRecords patient_id={patientResource?.id}/>
     </div>
   );
 }
