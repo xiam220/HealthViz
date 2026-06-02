@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 // import PatientHistory from "../services/patientHistory";
 import { LoadConditions } from "~/services/condition_client";
 import { LoadImmunizationRecords } from "~/services/immunization_client";
+import { LoadAllergyIntoleranceRecords } from "~/services/allergyIntolerance_client";
 
 
 export default function PatientProfile() {
@@ -50,6 +51,7 @@ export default function PatientProfile() {
         {patientResource.address?.[0]?.postalCode} 
       </p>
 
+      <LoadAllergyIntoleranceRecords patient_id={patientResource?.id}/>
       <LoadConditions patient_id={patientResource?.id}/>
       <LoadImmunizationRecords patient_id={patientResource?.id}/>
     </div>
